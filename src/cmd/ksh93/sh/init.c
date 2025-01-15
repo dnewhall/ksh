@@ -636,7 +636,7 @@ static void seed_rand_uint(struct rand *rp, unsigned int seed)
 /*
  * These four functions are used to get and set the RANDOM variable
  */
-static void put_rand(Namval_t *np,const char *val,int flags,Namfun_t *fp)
+static void put_rand(Namval_t* np,const char *val,int flags,Namfun_t *fp)
 {
 	struct rand *rp = (struct rand*)fp;
 	Sfdouble_t n;
@@ -663,7 +663,7 @@ static void put_rand(Namval_t *np,const char *val,int flags,Namfun_t *fp)
  * get random number in range of 0 - 2**15
  * never pick same number twice in a row
  */
-static Sfdouble_t nget_rand(Namval_t *np, Namfun_t *fp)
+static Sfdouble_t nget_rand(Namval_t* np, Namfun_t *fp)
 {
 	struct rand *rp = (struct rand*)fp;
 	int32_t cur;
@@ -678,7 +678,7 @@ static Sfdouble_t nget_rand(Namval_t *np, Namfun_t *fp)
 	return (Sfdouble_t)cur;
 }
 
-static char* get_rand(Namval_t *np, Namfun_t *fp)
+static char* get_rand(Namval_t* np, Namfun_t *fp)
 {
 	intmax_t n = (intmax_t)nget_rand(np,fp);
 	return fmtint(n,1);
